@@ -12,6 +12,7 @@ api = Api(app)
 app = Flask(__name__)
 api = Api(app)
 
+
 class PeopleCounter(Resource):
     def get(self):
         # load image
@@ -22,19 +23,8 @@ class PeopleCounter(Resource):
 
         return {'peopleCount': len(rects)}
 
+
 api.add_resource(PeopleCounter, '/')
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-'''
-# draw the bounding boxes
-for (x, y, w, h) in rects:
-    cv2.rectangle(image, (x, y), (x + w, y + h), (0, 0, 255), 2)
-
-print(f'Found {len(rects)} humans')
-
-# show the output images
-cv2.imshow("People detector", image)
-cv2.waitKey(0)
-'''
