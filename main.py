@@ -12,6 +12,7 @@ api = Api(app)
 app = Flask(__name__)
 api = Api(app)
 
+
 class PeopleCounter(Resource):
     def get(self):
         # load image
@@ -24,7 +25,6 @@ class PeopleCounter(Resource):
 
 
 api.add_resource(PeopleCounter, '/')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
